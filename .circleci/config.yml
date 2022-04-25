@@ -17,6 +17,11 @@ jobs:
       - run:
           name: "Testing"
           command: echo "Hi"
+  build:
+    machine:
+      image: ubuntu-2004:202201-01
+    steps:
+      - checkout
       - run:
           name: "Testing"
           command: lsusb
