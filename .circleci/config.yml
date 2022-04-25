@@ -24,7 +24,10 @@ jobs:
       - checkout
       - run:
           name: "Testing"
-          command: circleci version
+          command: cd ~
+      - run:
+          name: "Testing"
+          command: ls
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
