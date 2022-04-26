@@ -40,6 +40,10 @@ jobs:
           # This assumes pytest is installed via the install-package step above
           command: sudo ln -s /lib/x86_64-linux-gnu/libusb-1.0.so.0 /usr/lib/libusbx-1.0.so.0.1.0 
       - run:
+          name: install
+          # This assumes pytest is installed via the install-package step above
+          command: sudo ln -s /lib/x86_64-linux-gnu/libusb-1.0.so.0 /usr/lib/libusbx-1.0.so
+      - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
           command:  /bin/python3 test.py
