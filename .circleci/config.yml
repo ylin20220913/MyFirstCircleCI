@@ -23,10 +23,10 @@ jobs:
       #     name: Install
       #     # This assumes pytest is installed via the install-package step above
       #     command:  sudo apt-get update && sudo apt-get install usbutils
-      # - run:
-      #     name: Install2
-      #     # This assumes pytest is installed via the install-package step above
-      #     command:  sudo apt-get update && sudo apt-get install python3-pip && sudo pip install usb && sudo pip install pyusb && sudo pip install libusb
+      - run:
+          name: Install2
+          # This assumes pytest is installed via the install-package step above
+          command:  source /path/to/venv/bin/activate
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
