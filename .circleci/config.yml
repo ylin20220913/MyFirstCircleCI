@@ -30,4 +30,4 @@ jobs:
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
-          command:  /bin/python3 test.py
+          command:  test.py
