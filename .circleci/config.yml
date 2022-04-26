@@ -13,7 +13,7 @@ workflows:
 jobs:
   runner:
     machine: true
-    resource_class: ylin20220913/MyFirstCircleCI
+    resource_class: MyFirstCircleCI
     steps:
       - run: echo "Hi I'm on Runners!"
   build-and-test: 
