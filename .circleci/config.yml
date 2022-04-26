@@ -11,10 +11,12 @@ workflows:
 
 jobs:
   build-and-test: 
-    machine: true
-    resource_class: large
+    # machine: true
+    # resource_class: large
+    docker:
+      - image: cimg/python:3.8
     steps:
-      - checkout
+      # - checkout
       - python/install-packages:
           pkg-manager: pip
       - run:
