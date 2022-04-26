@@ -26,8 +26,8 @@ jobs:
       - run:
           name: Install2
           # This assumes pytest is installed via the install-package step above
-          command:  source /path/to/venv/bin/activate
-      - run:
-          name: Run tests
-          # This assumes pytest is installed via the install-package step above
-          command:  -v -x
+          command:  cd 
+      # - run:
+      #     name: Run tests
+      #     # This assumes pytest is installed via the install-package step above
+      #     command: python test.py
