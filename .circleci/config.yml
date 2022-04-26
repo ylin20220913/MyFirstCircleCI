@@ -7,7 +7,7 @@ workflows:
   sample:
     jobs:
       - runner
-      - build-and-test
+      # - build-and-test
 
 
 jobs:
@@ -16,22 +16,26 @@ jobs:
     resource_class: MyFirstCircleCI
     steps:
       - run: echo "Hi I'm on Runners!"
-  build-and-test: 
-    docker:
-      - image: cimg/python:3.8
-    steps:
-      - checkout
-      - python/install-packages:
-          pkg-manager: pip
-      - run:
-          name: Install
-          # This assumes pytest is installed via the install-package step above
-          command:  sudo apt-get update && sudo apt-get install usbutils
-      # - run:
-      #     name: Install2
-      #     # This assumes pytest is installed via the install-package step above
-      #     command:  sudo apt-get update && sudo apt-get install python3-pip && sudo pip install usb && sudo pip install pyusb && sudo pip install libusb
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
           command:  /bin/python3 test.py
+  # build-and-test: 
+  #   docker:
+  #     - image: cimg/python:3.8
+  #   steps:
+  #     - checkout
+  #     - python/install-packages:
+  #         pkg-manager: pip
+  #     - run:
+  #         name: Install
+  #         # This assumes pytest is installed via the install-package step above
+  #         command:  sudo apt-get update && sudo apt-get install usbutils
+  #     # - run:
+  #     #     name: Install2
+  #     #     # This assumes pytest is installed via the install-package step above
+  #     #     command:  sudo apt-get update && sudo apt-get install python3-pip && sudo pip install usb && sudo pip install pyusb && sudo pip install libusb
+  #     - run:
+  #         name: Run tests
+  #         # This assumes pytest is installed via the install-package step above
+  #         command:  /bin/python3 test.py
