@@ -38,7 +38,7 @@ jobs:
       - run:
           name: install
           # This assumes pytest is installed via the install-package step above
-          command: apt-get install libusb
+          command: sudo apt-get install libusb
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
