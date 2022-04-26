@@ -19,10 +19,10 @@ jobs:
       - checkout
       # - python/install-packages:
       #     pkg-manager: pip
-      - run:
-          name: Install
-          # This assumes pytest is installed via the install-package step above
-          command:  sudo apt-get update && sudo apt-get install usbutils
+      # - run:
+      #     name: Install
+      #     # This assumes pytest is installed via the install-package step above
+      #     command:  sudo apt-get update && sudo apt-get install usbutils
       # - run:
       #     name: Install2
       #     # This assumes pytest is installed via the install-package step above
@@ -30,4 +30,4 @@ jobs:
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
-          command:  test.py
+          command:  -v -x
