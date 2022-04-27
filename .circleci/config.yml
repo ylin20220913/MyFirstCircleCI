@@ -23,4 +23,4 @@ jobs:
       #     command:  sudo apt-get update && sudo apt-get install usbutils
       - run:
           name: Run tests
-          command: python3 test.py
+          command: lsusb
