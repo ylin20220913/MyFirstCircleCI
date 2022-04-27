@@ -13,14 +13,14 @@ jobs:
   build-and-test: 
     machine:
       image: ubuntu-2004:current
-    resource_class: large
+    # resource_class: large
     # docker:
     #   - image: cimg/python:3.8
     steps:
       - checkout
-      - run:
-          name: Install
-          command:  sudo apt-get update && sudo apt-get install usbutils
+      # - run:
+      #     name: Install
+      #     command:  sudo apt-get update && sudo apt-get install usbutils
       - run:
           name: Run tests
-          command: lsusb
+          command: python3 test.py
