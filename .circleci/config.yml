@@ -12,7 +12,7 @@ workflows:
 jobs:
   build-and-test:
     machine: true
-    # resource_class: ylin-demos-namespace/ylin-resource-class
+    resource_class: ylin-demos-namespace/ylin-resource-class
     # resource_class: large
     # docker:
     #   - image: cimg/python:3.8
