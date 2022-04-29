@@ -17,13 +17,13 @@ jobs:
     # docker:
     #   - image: cimg/python:3.8
     steps:
-      - checkout
-      - run:
-          name: Install
-          command:  sudo apt-get update && sudo apt-get install usbutils && sudo apt-get install python3-pip && sudo pip install usb && sudo pip install pyusb && sudo pip install libusb
-      - run:
-          name: Run tests
-          command: python3 test.py
+      # - checkout
+      # - run:
+      #     name: Install
+      #     command:  sudo apt-get update && sudo apt-get install usbutils && sudo apt-get install python3-pip && sudo pip install usb && sudo pip install pyusb && sudo pip install libusb
+      # - run:
+      #     name: Run tests
+      #     command: python3 test.py
       - run:
           name: Run test2
           command: lsusb
