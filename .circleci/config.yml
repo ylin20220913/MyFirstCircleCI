@@ -1,40 +1,40 @@
-# version: 2.1
-
-# # orbs:
-# #   python: circleci/python@1.2
-
-# workflows:
-#   access-USB:
-#     jobs:
-#       - build-and-test
-
-
-# jobs:
-#   build-and-test:
-#     machine: true
-#     resource_class: ylin-demos-namespace/ylin-resource-class
-#     # resource_class: large
-#     # docker:
-#     #   - image: cimg/python:3.8
-#     steps:
-#       - checkout
-#       - run:
-#           name: Install
-#           command:  sudo apt-get update && sudo apt-get install usbutils && sudo apt-get install python3-pip && sudo pip install usb && sudo pip install pyusb && sudo pip install libusb
-#       - run:
-#           name: Run tests
-#           command: python3 test.py
-#       - run:
-#           name: Run test2
-#           command: lsusb
 version: 2.1
+
+# orbs:
+#   python: circleci/python@1.2
+
 workflows:
-  testing:
+  access-USB:
     jobs:
-      - runner-test
+      - build-and-test
+
+
 jobs:
-  runner-test:
+  build-and-test:
     machine: true
     resource_class: ylin-demos-namespace/ylin-resource-class
+    # resource_class: large
+    # docker:
+    #   - image: cimg/python:3.8
     steps:
-      - run: echo "Hi I'm on Runners!"
+      - checkout
+      - run:
+          name: Install
+          command:  sudo apt-get update && sudo apt-get install usbutils && sudo apt-get install python3-pip && sudo pip install usb && sudo pip install pyusb && sudo pip install libusb
+      - run:
+          name: Run tests
+          command: python3 test.py
+      - run:
+          name: Run test2
+          command: lsusb
+# version: 2.1
+# workflows:
+#   testing:
+#     jobs:
+#       - runner-test
+# jobs:
+#   runner-test:
+#     machine: true
+#     resource_class: ylin-demos-namespace/ylin-resource-class
+#     steps:
+#       - run: echo "Hi I'm on Runners!"
