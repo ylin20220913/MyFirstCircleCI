@@ -26,7 +26,7 @@ jobs:
       #     command: python3 test.py
       - run:
           name: Run test
-          command: ls -l
+          command: robot . 
 # version: 2.1
 # workflows:
 #   testing:
