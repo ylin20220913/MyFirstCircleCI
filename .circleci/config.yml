@@ -1,40 +1,33 @@
 version: 2.1
 
-# orbs:
-#   python: circleci/python@1.2
-
 workflows:
-  access-USB:
+  access-gpio:
     jobs:
-      - build-and-test
-
+      # - docker-build
+      - docker-test
 
 jobs:
-  build-and-test:
+  docker-test:
     machine: true
     resource_class: ylin-demos-namespace/ylin-resource-class
-    # resource_class: large
-    # docker:
-    #   - image: cimg/python:3.8
     steps:
       - checkout
       # - run:
-      #     name: Install
-      #     command:  sudo apt-get update && sudo apt-get install usbutils && sudo apt-get install python3-pip && sudo pip install usb && sudo pip install pyusb && sudo pip install libusb
-      # - run:
-      #     name: Run tests
-      #     command: python3 test.py
+      #     name: Run test
+      #     command: robot .
       - run:
           name: Run test
-          command: robot .
-# version: 2.1
-# workflows:
-#   testing:
-#     jobs:
-#       - runner-test
-# jobs:
-#   runner-test:
-#     machine: true
-#     resource_class: ylin-demos-namespace/ylin-resource-class
-#     steps:
-#       - run: echo "Hi I'm on Runners!"
+          command: sudo docker build -t docker-test . && sudo docker run --rm --privileged docker-test
+      
+
+  # docker-build:
+  #   docker:
+  #     - image: cimg/python:3.7
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Install
+  #         command:  sudo apt-get update && sudo apt-get install python3-pip && pip install RPi.GPIO && pip3 install robotframework && pip3 install elasticsearch && python3 -m pip install .
+  #     - run:
+  #         name: Run
+  #         command:  robot .
